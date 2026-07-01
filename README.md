@@ -1,2 +1,2 @@
 # Stamford-Awana
-Wensite for Stamford Awana
+Website for Stamford Awana
