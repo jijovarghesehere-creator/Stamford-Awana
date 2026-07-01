@@ -24,11 +24,10 @@
 <body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-awanaNavy selection:text-white">
 
     <!-- Navigation -->
-    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-xs">
+    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-md">
         <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
             <!-- Logo + City Label Group -->
             <div class="flex items-center space-x-3">
-                <!-- Official Awana Clubs Brand Banner Logo -->
                 <img src="https://clubs.awana.org/wp-content/uploads/2025/04/awana-clubs-logo-color-1.jpg" alt="Awana Clubs Logo" class="h-12 w-auto object-contain">
                 <div class="h-6 w-px bg-slate-200 hidden sm:block"></div>
                 <span class="text-xs font-black text-slate-400 uppercase tracking-widest pt-0.5 hidden sm:inline">Stamford</span>
@@ -40,28 +39,33 @@
                 <a href="#clubs" class="hover:text-awanaRed transition">Clubs</a>
                 <a href="#logistics" class="hover:text-awanaRed transition">Time & Location</a>
             </div>
-            <a href="#register" class="bg-awanaNavy text-white px-5 py-2.5 rounded-lg font-bold hover:bg-slate-800 transition text-xs tracking-wider uppercase">Register</a>
+            <a href="#register" class="bg-awanaNavy text-white px-5 py-2.5 rounded-lg font-bold hover:bg-slate-800 transition text-xs tracking-wider uppercase shadow-xs">Register</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative bg-gradient-to-br from-awanaNavy via-[#183d6b] to-[#0b213b] text-white py-24 px-6 text-center overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,204,0,0.1),transparent_50%)]"></div>
+    <!-- Hero Section with Fresh Kids Background Overlay -->
+    <header class="relative bg-awanaNavy text-white py-28 px-6 text-center overflow-hidden">
+        <!-- New energetic background image of smiling youth outside -->
+        <div class="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1600&q=80" alt="Group of cheerful children" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-awanaNavy/95 z-0"></div>
+        
         <div class="max-w-4xl mx-auto relative z-10">
-            <span class="bg-white/10 text-awanaGold text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-md border border-white/10 backdrop-blur-xs">
+            <span class="bg-awanaRed text-white text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
                 Midweek Bible Curriculum
             </span>
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight mt-6 mb-6 leading-tight">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight mt-6 mb-6 leading-tight drop-shadow-md">
                 Where God-Sized Faith <br class="hidden md:inline">Meets <span class="text-awanaGold">Kid-Sized Fun</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+            <p class="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto mb-10 font-medium leading-relaxed drop-shadow-xs">
                 Children find a vibrant community as they learn Scripture, build authentic mentoring relationships, and come to know, love, and serve Jesus.
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#register" class="w-full sm:w-auto bg-awanaRed text-white px-8 py-4 rounded-xl font-extrabold text-base shadow-md hover:bg-red-600 transition">
+                <a href="#register" class="w-full sm:w-auto bg-awanaGold text-slate-900 px-8 py-4 rounded-xl font-black text-base shadow-lg hover:bg-amber-400 transition transform hover:-translate-y-0.5">
                     Join A Club This Week
                 </a>
-                <a href="#core-pillars" class="w-full sm:w-auto bg-white/5 text-white border border-white/10 px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition">
+                <a href="#core-pillars" class="w-full sm:w-auto bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-semibold hover:bg-white/20 backdrop-blur-xs transition">
                     Proven Curriculum
                 </a>
             </div>
@@ -71,87 +75,108 @@
     <!-- Core Pillars -->
     <section id="core-pillars" class="max-w-5xl mx-auto py-20 px-6 border-b border-slate-200">
         <div class="text-center max-w-2xl mx-auto mb-16">
-            <span class="text-xs font-extrabold uppercase tracking-widest text-awanaRed">A Firm Foundation</span>
-            <h2 class="text-3xl font-black text-slate-900 mt-2 tracking-tight">How Discipleship Happens</h2>
+            <span class="text-xs font-extrabold uppercase tracking-widest text-awanaRed bg-red-50 px-3 py-1 rounded-full">A Firm Foundation</span>
+            <h2 class="text-3xl font-black text-slate-900 mt-4 tracking-tight">How Discipleship Happens</h2>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xs">
-                <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-awanaNavy font-bold text-2xl mb-5">👥</div>
+            <div class="bg-white p-8 rounded-2xl border-t-4 border-awanaLightBlue shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center text-awanaLightBlue font-bold text-2xl mb-5">👥</div>
                 <h3 class="text-xl font-bold text-slate-900 mb-2">Leader-Child Relationships</h3>
                 <p class="text-slate-600 text-sm leading-relaxed">Awana Clubs cultivates true connections between kids and caring adults, ensuring every child feels like they belong.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xs">
+            <div class="bg-white p-8 rounded-2xl border-t-4 border-awanaRed shadow-sm hover:shadow-md transition">
                 <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-awanaRed font-bold text-2xl mb-5">📖</div>
                 <h3 class="text-xl font-bold text-slate-900 mb-2">Bible Engagement</h3>
                 <p class="text-slate-600 text-sm leading-relaxed">Kids don't just memorize Scripture; they dive deeper to truly understand what it means for their lives and everyday decisions.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xs">
-                <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-awanaGold font-bold text-2xl mb-5">🌱</div>
+            <div class="bg-white p-8 rounded-2xl border-t-4 border-awanaGold shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-500 font-bold text-2xl mb-5">🌱</div>
                 <h3 class="text-xl font-bold text-slate-900 mb-2">Spiritual Development</h3>
                 <p class="text-slate-600 text-sm leading-relaxed">What kids learn in the moment, they carry with them. Midweek ministry builds lifelong relationships with the Lord.</p>
             </div>
         </div>
     </section>
 
-    <!-- What Happens at an Awana Club Night -->
-    <section id="club-night" class="bg-slate-100/40 py-20 px-6 border-b border-slate-200">
+    <!-- What Happens at an Awana Club Night (New Group Environment Images) -->
+    <section id="club-night" class="bg-gradient-to-b from-slate-100 to-white py-20 px-6 border-b border-slate-200">
         <div class="max-w-5xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-awanaLightBlue">A Typical Club Routine</span>
-                <h2 class="text-3xl font-black text-slate-900 mt-2 tracking-tight">What Happens at Club?</h2>
+                <span class="text-xs font-extrabold uppercase tracking-widest text-awanaLightBlue bg-cyan-50 px-3 py-1 rounded-full">A Typical Club Routine</span>
+                <h2 class="text-3xl font-black text-slate-900 mt-4 tracking-tight">What Happens at Club?</h2>
                 <p class="text-slate-600 mt-3">Every evening brings structure, moving kids through three distinct environments designed for maximum impact and high-energy community.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="p-4">
-                    <h4 class="text-lg font-black text-slate-900 mb-2">📢 Large Group Time</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Interactive time filled with weekly Bible messages, age-appropriate lessons, worship music, and celebrating student awards.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Large Group Time - New Image Choice -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                    <img src="https://clubs.awana.org/wp-content/uploads/2025/04/241111_Awana_RealAwanaClubs_VillageChurchofBartlett_127_Sparks_LargeGroupTime-e1744902448670-500x432.jpg?auto=format&fit=crop&w=500&h=320&q=80" alt="Children gathering and raising hands" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">📢 Large Group Time</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">Interactive time filled with weekly Bible messages, age-appropriate lessons, worship music, and celebrating student awards.</p>
+                    </div>
                 </div>
-                <div class="p-4">
-                    <h4 class="text-lg font-black text-slate-900 mb-2">🤝 Small Group Time</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Close conversational circles where kids work through handbooks, engage in scripture learning, and share prayer requests with leaders.</p>
+                <!-- Small Group Time - New Image Choice -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                    <img src="https://clubs.awana.org/wp-content/uploads/2023/05/accordion-image-1024x1024.png?auto=format&fit=crop&w=500&h=320&q=80" alt="Children reading books side-by-side" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">🤝 Small Group Time</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">Close conversational circles where kids work through handbooks, engage in scripture learning, and share prayer requests with leaders.</p>
+                    </div>
                 </div>
-                <div class="p-4">
-                    <h4 class="text-lg font-black text-slate-900 mb-2">⚡ Awana Games</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Fast-paced, high-energy team games built around the unique Awana circle track. Fun, friendly competition that keeps everyone moving!</p>
+                <!-- Awana Games - New Image Choice -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                    <img src="https://clubs.awana.org/wp-content/uploads/2025/04/241111_Awana_RealAwanaClubs_VillageChurchofBartlett_059_Sparks_GameTime-e1744902578980-2048x1154.jpg?auto=format&fit=crop&w=500&h=320&q=80" alt="Joyful boy laughing on play layout track" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-lg font-black text-slate-900 mb-2">⚡ Awana Games</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">Fast-paced, high-energy team games built around the unique Awana circle track. Fun, friendly competition that keeps everyone moving!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Club Classrooms Breakdown -->
-    <section id="clubs" class="bg-slate-100/60 py-20 px-6">
+    <!-- Club Classrooms Breakdown with New Targeted Age Groups -->
+    <section id="clubs" class="bg-slate-50 py-20 px-6">
         <div class="max-w-5xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <h2 class="text-3xl font-black text-slate-900 tracking-tight">Tailored Ministry Programs</h2>
                 <p class="text-slate-600 mt-2">Every age level features unique uniforms, reward systems, achievement tokens, and custom-mapped handbooks.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Cubbies -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-xs">
-                    <div class="p-8">
-                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">Preschoolers</span>
-                        <h3 class="text-2xl font-black text-slate-900 mt-3 mb-3">Cubbies</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Nurtures the spiritual potential of kids through highly interactive games, fun puppet modules, creative crafts, and critical foundational scriptural building blocks.</p>
+                <!-- Cubbies (New Preschool Image) -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+                    <div>
+                        <img src="https://clubs.awana.org/wp-content/uploads/2025/04/1-241106_Awana_Club_EEFC_051_Cubbies-1-e1744902727168.jpg?auto=format&fit=crop&w=500&h=300&q=80" alt="Toddler child smiling at a desk block layout" class="w-full h-44 object-cover">
+                        <div class="p-6">
+                            <span class="text-[10px] font-extrabold uppercase tracking-widest text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">Preschoolers</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">Cubbies</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Nurtures the spiritual potential of kids through highly interactive games, fun puppet modules, creative crafts, and critical foundational scriptural building blocks.</p>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 p-4 border-t border-slate-100 text-xs font-semibold text-slate-500 text-center tracking-wide">Ages: 3 - 4 Years Old</div>
+                    <div class="bg-blue-600 text-white p-3 border-t border-slate-100 text-xs font-bold text-center tracking-wide">Ages: 3 - 4 Years Old</div>
                 </div>
-                <!-- Sparks -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-xs">
-                    <div class="p-8">
-                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-awanaRed bg-red-50 px-2.5 py-1 rounded-md">Early Elementary</span>
-                        <h3 class="text-2xl font-black text-slate-900 mt-3 mb-3">Sparks</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Ignites curiosity about Jesus through chronological walk-throughs of the Bible from Genesis to Revelation, active memory testing, and high-energy square track games.</p>
+                <!-- Sparks (New Early Elementary Image) -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+                    <div>
+                        <img src="https://clubs.awana.org/wp-content/uploads/2025/04/241111_Awana_RealAwanaClubs_VillageChurchofBartlett_127_Sparks_LargeGroupTime-e1744902448670-2048x1769.jpg?auto=format&fit=crop&w=500&h=300&q=80" alt="Young school children sitting together outdoors" class="w-full h-44 object-cover">
+                        <div class="p-6">
+                            <span class="text-[10px] font-extrabold uppercase tracking-widest text-awanaRed bg-red-50 px-2.5 py-1 rounded-md">Early Elementary</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">Sparks</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Ignites curiosity about Jesus through chronological walk-throughs of the Bible from Genesis to Revelation, active memory testing, and high-energy square track games.</p>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 p-4 border-t border-slate-100 text-xs font-semibold text-slate-500 text-center tracking-wide">Grades: K - 2nd Grade</div>
+                    <div class="bg-awanaRed text-white p-3 border-t border-slate-100 text-xs font-bold text-center tracking-wide">Grades: K - 2nd Grade</div>
                 </div>
-                <!-- T&T -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-xs">
-                    <div class="p-8">
-                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md">Upper Elementary</span>
-                        <h3 class="text-2xl font-black text-slate-900 mt-3 mb-3">T&T</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Truth & Training focuses on cementing relational truths, answering heavy faith questions, and building everyday practical disciplines of grace and personal prayer.</p>
+                <!-- T&T (New Upper Elementary Image) -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&h=300&q=80" alt="Group of older children cheering around a table" class="w-full h-44 object-cover">
+                        <div class="p-6">
+                            <span class="text-[10px] font-extrabold uppercase tracking-widest text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md">Upper Elementary</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">T&T</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Truth & Training focuses on cementing relational truths, answering heavy faith questions, and building everyday practical disciplines of grace and personal prayer.</p>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 p-4 border-t border-slate-100 text-xs font-semibold text-slate-500 text-center tracking-wide">Grades: 3rd - 5th Grade</div>
+                    <div class="bg-awanaGold text-slate-900 p-3 border-t border-slate-100 text-xs font-black text-center tracking-wide">Grades: 3rd - 5th Grade</div>
                 </div>
             </div>
         </div>
@@ -161,29 +186,29 @@
     <section id="logistics" class="max-w-4xl mx-auto py-20 px-6 text-center">
         <h2 class="text-3xl font-black text-slate-900 tracking-tight mb-4">When & Where</h2>
         <p class="text-slate-600 mb-10 max-w-lg mx-auto">Awana runs throughout the academic school calendar year (September – May).</p>
-        <div class="bg-white border border-slate-200/80 rounded-3xl p-8 md:p-10 grid md:grid-cols-2 gap-8 text-left shadow-xs">
-            <div class="md:pr-6 md:border-r border-slate-100">
-                <span class="font-extrabold text-awanaRed uppercase tracking-widest text-[10px]">Weekly Gathering Time</span>
-                <p class="text-2xl font-black text-slate-950 mt-1">Thursdays</p>
+        <div class="bg-gradient-to-br from-white to-slate-50 border border-slate-200/80 rounded-3xl p-8 md:p-10 grid md:grid-cols-2 gap-8 text-left shadow-md">
+            <div class="md:pr-6 md:border-r border-slate-200">
+                <span class="font-extrabold text-awanaRed uppercase tracking-widest text-[10px] bg-red-50 px-2 py-0.5 rounded">Weekly Gathering Time</span>
+                <p class="text-3xl font-black text-slate-950 mt-3">Thursdays</p>
                 <p class="text-lg font-bold text-slate-700 mt-0.5">6:30 PM – 8:15 PM</p>
             </div>
             <div class="md:pl-2">
-                <span class="font-extrabold text-awanaRed uppercase tracking-widest text-[10px]">Host Venue Location</span>
-                <p class="text-2xl font-black text-slate-950 mt-1">Stamford Baptist Church</p>
-                <p class="text-slate-600 text-sm mt-1 leading-relaxed">602 High Ridge Rd<br>Stamford, CT 06905</p>
+                <span class="font-extrabold text-awanaLightBlue uppercase tracking-widest text-[10px] bg-cyan-50 px-2 py-0.5 rounded">Host Venue Location</span>
+                <p class="text-3xl font-black text-slate-950 mt-3">Stamford Baptist Church</p>
+                <p class="text-slate-600 text-sm mt-1 leading-relaxed font-medium">602 High Ridge Rd<br>Stamford, CT 06905</p>
             </div>
         </div>
     </section>
 
-    <!-- Light Registration Section -->
-    <section id="register" class="bg-white border-t border-slate-200 text-center py-20 px-6">
+    <!-- Registration Section -->
+    <section id="register" class="bg-gradient-to-tr from-amber-50 via-white to-red-50 border-t border-slate-200 text-center py-20 px-6">
         <div class="max-w-2xl mx-auto">
-            <span class="text-xs font-extrabold uppercase tracking-widest text-awanaRed">Secure a Spot</span>
-            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mt-2 tracking-tight mb-4">Ready to Join Us for Awana?</h2>
-            <p class="text-slate-600 mb-8 max-w-lg mx-auto font-light leading-relaxed">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-awanaRed bg-white px-3 py-1 rounded-full shadow-xs border border-red-100">Secure a Spot</span>
+            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mt-4 tracking-tight mb-4">Ready to Join Us for Awana?</h2>
+            <p class="text-slate-600 mb-8 max-w-lg mx-auto font-normal leading-relaxed">
                 Early registration helps us prepare student handbooks, club uniform vests, awards, and group leader ratios well ahead of launch night.
             </p>
-            <a href="https://forms.google.com" target="_blank" class="inline-block bg-awanaNavy text-white px-10 py-4 rounded-xl font-bold text-base shadow-sm hover:bg-slate-800 transition tracking-wide">
+            <a href="https://forms.google.com" target="_blank" class="inline-block bg-awanaNavy text-white px-10 py-4 rounded-xl font-bold text-base shadow-xl hover:bg-slate-800 transition tracking-wide transform hover:scale-105">
                 Complete Online Registration
             </a>
         </div>
