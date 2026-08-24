@@ -357,32 +357,72 @@
 
         </div>
 
-        <!-- Embedded Club Calendar Section -->
-        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-slate-100 text-center">
-            <div class="mb-6 flex flex-col md:flex-row items-center justify-between gap-4 border-b border-slate-100 pb-4">
-                <div class="text-left">
-                    <h3 class="text-2xl font-black text-[#030E20]">Club Calendar</h3>
-                    <p class="text-slate-600 font-medium text-sm">View or download our complete schedule for the year.</p>
-                </div>
-                <a href="assets/Calendar Print View - Clubbers.pdf" target="_blank" download class="inline-flex items-center gap-2 bg-[#00AEEF] hover:bg-[#0086B8] text-white font-bold px-5 py-2.5 rounded-xl transition-colors text-sm">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    Download Calendar PDF
-                </a>
-            </div>
+<!-- Calendar Section -->
+<div class="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-slate-100">
+  <div class="mb-6 flex flex-col md:flex-row items-center justify-between gap-4 border-b border-slate-100 pb-4">
+    <div class="text-left">
+      <h3 class="text-2xl font-black text-[#030E20]">Club Calendar</h3>
+      <p class="text-slate-600 font-medium text-sm">Live schedule updated from our team calendar.</p>
+    </div>
+  </div>
 
-            <div class="w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
-                <iframe 
-                    src="assets/Calendar Print View - Clubbers.pdf" 
-                    width="100%" 
-                    height="650px" 
-                    style="border: none;"
-                    title="Awana Club Calendar">
-                    <p class="p-6 text-slate-600">Your browser does not support embedded PDFs. 
-                        <a href="assets/Calendar Print View - Clubbers.pdf" target="_blank" class="text-[#00AEEF] underline font-bold">Click here to view or download the calendar.</a>
-                    </p>
-                </iframe>
-            </div>
-        </div>
+  <!-- Loading State & Table Container -->
+  <div id="calendar-loading" class="text-center py-8 text-slate-500 font-medium">Loading club schedule...</div>
+  
+  <div class="overflow-x-auto">
+    <table id="calendar-table" class="w-full text-left border-collapse hidden">
+      <thead>
+        <tr class="bg-slate-100 text-slate-900 text-xs uppercase tracking-wider font-bold">
+          <th class="p-3 rounded-l-lg">Date</th>
+          <th class="p-3">Theme / Event</th>
+          <th class="p-3 rounded-r-lg">Clubs Involved</th>
+        </tr>
+      </thead>
+      <tbody id="calendar-body" class="divide-y divide-slate-100 text-sm text-slate-700">
+        <!-- Rows dynamically inserted here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  // Replace with your actual Google Sheet ID
+  const SHEET_ID = '1Pt_gYp0CtrEU0rsVAojlVj0VVVgw9HwTgYTLzOcOs88';
+  const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+
+  fetch(SHEET_URL)
+    .then(res => res.text())
+    .then(data => {
+      // Clean Google's JSON wrapper response
+      const json = JSON.parse(data.substring(47, data.length - 2));
+      const rows = json.table.rows;
+      const tbody = document.getElementById('calendar-body');
+
+      rows.forEach(row => {
+        const date = row.c[0] ? row.c[0].v || row.c[0].f : '';
+        const theme = row.c[1] ? row.c[1].v : '';
+        const club = row.c[2] ? row.c[2].v : 'All Clubs';
+
+        if (date || theme) {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-50 transition-colors';
+          tr.innerHTML = `
+            <td class="p-3 font-bold text-[#00AEEF] whitespace-nowrap">${date}</td>
+            <td class="p-3 font-semibold text-slate-800">${theme}</td>
+            <td class="p-3 text-slate-500">${club}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+      });
+
+      document.getElementById('calendar-loading').classList.add('hidden');
+      document.getElementById('calendar-table').classList.remove('hidden');
+    })
+    .catch(err => {
+      document.getElementById('calendar-loading').innerText = 'Unable to load schedule. Please try again later.';
+      console.error(err);
+    });
+</script>
 
     </div>
 </section>
