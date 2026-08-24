@@ -357,28 +357,37 @@
 
         </div>
 
-<!-- Calendar Section -->
-<div class="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-slate-100">
+<!-- Live Calendar Section -->
+<div class="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-slate-100 mt-8">
   <div class="mb-6 flex flex-col md:flex-row items-center justify-between gap-4 border-b border-slate-100 pb-4">
     <div class="text-left">
-      <h3 class="text-2xl font-black text-[#030E20]">Club Calendar</h3>
-      <p class="text-slate-600 font-medium text-sm">Live schedule updated from our team calendar.</p>
+      <div class="flex items-center gap-2 mb-1">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Live Calendar</span>
+      </div>
+      <h3 class="text-2xl font-black text-[#030E20]">2026–2027 Club Calendar</h3>
     </div>
   </div>
 
-  <!-- Loading State & Table Container -->
-  <div id="calendar-loading" class="text-center py-8 text-slate-500 font-medium">Loading club schedule...</div>
-  
+  <!-- Loading State -->
+  <div id="calendar-loading" class="text-center py-8 text-slate-500 font-medium">
+    Loading schedule...
+  </div>
+
+  <!-- Table View -->
   <div class="overflow-x-auto">
     <table id="calendar-table" class="w-full text-left border-collapse hidden">
       <thead>
-        <tr class="bg-slate-100 text-slate-900 text-xs uppercase tracking-wider font-bold">
-          <th class="p-3 rounded-l-lg">Date</th>
-          <th class="p-3">Theme / Event</th>
-          <th class="p-3 rounded-r-lg">Clubs Involved</th>
+        <tr class="bg-slate-100 text-slate-900 text-xs uppercase tracking-wider font-extrabold border-b border-slate-200">
+          <th class="p-3.5 rounded-l-xl">Date</th>
+          <th class="p-3.5">Theme / Event</th>
+          <th class="p-3.5 rounded-r-xl">Clubs Involved</th>
         </tr>
       </thead>
-      <tbody id="calendar-body" class="divide-y divide-slate-100 text-sm text-slate-700">
+      <tbody id="calendar-body" class="divide-y divide-slate-100 text-sm font-medium">
         <!-- Rows dynamically inserted here -->
       </tbody>
     </table>
@@ -386,30 +395,55 @@
 </div>
 
 <script>
-  // Replace with your actual Google Sheet ID
-  const SHEET_ID = '1Pt_gYp0CtrEU0rsVAojlVj0VVVgw9HwTgYTLzOcOs88';
+  const SHEET_ID = '1Pt_gYp0CtrEU0rsVAojlVj0VVVgw9HwTgYTLzOcOs88'; // Replace with your actual Sheet ID
   const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+
+  function parseGoogleSheetDate(val) {
+    if (!val) return '';
+    const valStr = String(val);
+
+    // Matches Google Sheets Date(YYYY,M,D) string
+    const match = valStr.match(/Date\((\d+),(\d+),(\d+)\)/);
+    if (match) {
+      const year = parseInt(match[1]);
+      const month = parseInt(match[2]); // Google Sheet months are 0-indexed (8 = September)
+      const day = parseInt(match[3]);
+      
+      const dateObj = new Date(year, month, day);
+      return dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+    return valStr;
+  }
 
   fetch(SHEET_URL)
     .then(res => res.text())
     .then(data => {
-      // Clean Google's JSON wrapper response
+      // Extract clean JSON payload from Google's response
       const json = JSON.parse(data.substring(47, data.length - 2));
       const rows = json.table.rows;
       const tbody = document.getElementById('calendar-body');
+      tbody.innerHTML = '';
 
       rows.forEach(row => {
-        const date = row.c[0] ? row.c[0].v || row.c[0].f : '';
-        const theme = row.c[1] ? row.c[1].v : '';
-        const club = row.c[2] ? row.c[2].v : 'All Clubs';
+        if (!row.c) return;
 
-        if (date || theme) {
+        // Fetch values safely
+        const rawDate = row.c[0] ? row.c[0].v : '';
+        const formattedDate = parseGoogleSheetDate(rawDate);
+        const theme = row.c[1] ? (row.c[1].v || '') : '';
+        const club = row.c[2] ? (row.c[2].v || 'All') : 'All';
+
+        if (formattedDate || theme) {
           const tr = document.createElement('tr');
           tr.className = 'hover:bg-slate-50 transition-colors';
           tr.innerHTML = `
-            <td class="p-3 font-bold text-[#00AEEF] whitespace-nowrap">${date}</td>
-            <td class="p-3 font-semibold text-slate-800">${theme}</td>
-            <td class="p-3 text-slate-500">${club}</td>
+            <td class="p-3.5 font-bold text-[#00AEEF] whitespace-nowrap">${formattedDate}</td>
+            <td class="p-3.5 font-bold text-slate-800">${theme}</td>
+            <td class="p-3.5">
+              <span class="inline-block bg-[#00529B]/10 text-[#00529B] font-bold text-xs px-2.5 py-1 rounded-md">
+                ${club}
+              </span>
+            </td>
           `;
           tbody.appendChild(tr);
         }
@@ -419,11 +453,10 @@
       document.getElementById('calendar-table').classList.remove('hidden');
     })
     .catch(err => {
-      document.getElementById('calendar-loading').innerText = 'Unable to load schedule. Please try again later.';
       console.error(err);
+      document.getElementById('calendar-loading').innerText = 'Unable to load schedule. Please verify your Google Sheet ID.';
     });
 </script>
-
     </div>
 </section>
 
