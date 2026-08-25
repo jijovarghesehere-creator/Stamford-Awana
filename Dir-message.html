@@ -6,7 +6,7 @@
   <title>A Message from Our Directors | Stamford Awana</title>
   <style>
     :root {
-      /* Stamford Awana Main Brand Palette */
+      /* Stamford Awana Brand Palette */
       --awana-blue: #00529B;
       --awana-red: #E31837;
       --awana-yellow: #FFB81C;
@@ -80,14 +80,20 @@
       margin: 0 auto;
     }
 
-    /* Featured General Director Hero Card */
+    /* General Director Hero Card - Enhanced Hover & Elevation */
     .hero-director-card {
       background: var(--card-bg);
       border-radius: 20px;
       padding: 2.5rem 2rem;
       border: 2px solid var(--awana-yellow);
-      box-shadow: 0 12px 24px -4px rgba(0, 82, 155, 0.1);
+      box-shadow: 0 10px 20px -4px rgba(0, 82, 155, 0.08);
       margin-bottom: 3.5rem;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-director-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -8px rgba(0, 82, 155, 0.15);
     }
 
     .hero-header {
@@ -111,7 +117,8 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid var(--awana-blue);
+      border: 4px solid var(--awana-blue);
+      box-shadow: 0 0 0 4px var(--card-bg), 0 8px 16px rgba(0, 82, 155, 0.15);
       flex-shrink: 0;
       margin-bottom: 1.25rem;
     }
@@ -153,14 +160,18 @@
       margin-bottom: 1rem;
     }
 
+    /* Enhanced Quote Formatting */
     .hero-article {
       color: var(--text-main);
       font-size: 1.05rem;
       line-height: 1.7;
       font-style: italic;
+      position: relative;
+      padding-left: 1.25rem;
+      border-left: 3px solid var(--awana-yellow);
     }
 
-    /* Director Family Photo Section — 50% Scaled Full Image */
+    /* Scaled Family Photo Showcase */
     .hero-family-section {
       margin-top: 2rem;
       padding-top: 1.75rem;
@@ -170,20 +181,25 @@
 
     .family-img-container {
       width: 100%;
-      max-width: 250px;  /* Reduced by 50% */
-      max-height: 400px; /* Reduced by 50% */
+      max-width: 260px;  /* 50% scale */
+      max-height: 400px;
       margin: 0 auto;
       overflow: hidden;
       border-radius: 12px;
       border: 3px solid var(--awana-blue);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 0 0 3px var(--card-bg), 0 8px 20px rgba(0, 0, 0, 0.12);
       background-color: #F8FAFC;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-director-card:hover .family-img-container {
+      transform: scale(1.02);
     }
 
     .family-photo {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Ensures 100% of image is fully visible without cropping */
+      object-fit: contain; /* Full image without clipping */
       display: block;
     }
 
@@ -215,26 +231,26 @@
       }
     }
 
-    /* Director Card */
+    /* Director Card - Enhanced Hover & Polish */
     .director-card {
       background: var(--card-bg);
       border-radius: 16px;
       padding: 2rem 1.5rem;
       border: 1px solid var(--border-color);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .director-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 20px -3px rgba(0, 82, 155, 0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 25px -5px rgba(0, 82, 155, 0.12);
     }
 
-    /* Photo Styling */
+    /* Photo Styling with Offset Outer Ring */
     .photo-placeholder {
       width: 130px;
       height: 130px;
@@ -242,6 +258,7 @@
       background-color: #E2E8F0;
       margin-bottom: 1.25rem;
       border: 4px solid var(--awana-blue);
+      box-shadow: 0 0 0 3px var(--card-bg), 0 6px 12px rgba(0, 0, 0, 0.08);
       position: relative;
     }
 
@@ -279,7 +296,7 @@
       font-style: italic;
       color: var(--text-muted);
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* Contact Section CTA */
@@ -290,7 +307,7 @@
       padding: 2.5rem 2rem;
       border-radius: 16px;
       text-align: center;
-      box-shadow: 0 10px 20px rgba(0, 82, 155, 0.2);
+      box-shadow: 0 12px 24px rgba(0, 82, 155, 0.2);
     }
 
     .footer-cta h2 {
@@ -331,11 +348,11 @@
     <section class="hero-director-card">
       
       <div class="hero-header">
-        <img src="images/Karen.jpeg" alt="Karen - Awana Director" class="hero-photo">
+        <img src="images/Karen.jpeg" alt="Karen - Awana Director" class="hero-photo" loading="lazy">
         <div class="hero-content">
           <span class="hero-badge">Awana Ministry Director</span>
-          <h2 class="hero-name">Karen Welborn</h2>
-          <p class="hero-title">Awana Director</p>
+          <h2 class="hero-name">Karen</h2>
+          <p class="hero-title">General Awana Director</p>
           <blockquote class="hero-article">
             "Our 7 children grew up going to Awana every week and it had such an impact on our family! The activities, games, handbooks, awards and events created lifelong memories while building a strong spiritual foundation. Our kids are now grown, but I continue serving in Awana so that other families can be blessed and also, because I am still learning so much about God through being in the Club."
           </blockquote>
@@ -345,7 +362,7 @@
       <!-- Family Photo Showcase -->
       <div class="hero-family-section">
         <div class="family-img-container">
-          <img src="images/Karen-Family.jpeg" alt="Karen and her family" class="family-photo">
+          <img src="images/Karen-Family.jpeg" alt="Karen and her family" class="family-photo" loading="lazy">
         </div>
         <p class="family-caption">The Welborn Family — 7 kids raised in Awana!</p>
       </div>
@@ -360,7 +377,7 @@
 
       <!-- Cubbies -->
       <div class="director-card">
-        <img src="images/Roccio-Cubbies.jpeg" alt="Roccio - Cubbies Director" class="photo-placeholder" style="border-color: var(--cubbies-blue); object-fit: cover;">
+        <img src="images/Roccio-Cubbies.jpeg" alt="Roccio - Cubbies Director" class="photo-placeholder" style="border-color: var(--cubbies-blue); object-fit: cover;" loading="lazy">
         <span class="club-badge badge-cubbies">Cubbies | Ages 3 – Pre-K</span>
         <h2 class="director-name">Roccio</h2>
         <p class="director-title">Cubbies Club Director</p>
@@ -371,7 +388,7 @@
 
       <!-- Sparks -->
       <div class="director-card">
-        <img src="images/Jyoti-Sparks.jpg" alt="Jyothi - Sparks Director" class="photo-placeholder" style="border-color: var(--sparks-red); object-fit: cover;">
+        <img src="images/Jyoti-Sparks.jpg" alt="Jyothi - Sparks Director" class="photo-placeholder" style="border-color: var(--sparks-red); object-fit: cover;" loading="lazy">
         <span class="club-badge badge-sparks">Sparks | K – 2nd Grade</span>
         <h2 class="director-name">Jyothi</h2>
         <p class="director-title">Sparks Club Director</p>
@@ -382,7 +399,7 @@
 
       <!-- T&T Director 1 -->
       <div class="director-card">
-        <img src="images/Rufus-T&T.png" alt="Rufus - T&T Director" class="photo-placeholder" style="border-color: var(--tandt-green); object-fit: cover;">
+        <img src="images/Rufus-T&T.png" alt="Rufus - T&T Director" class="photo-placeholder" style="border-color: var(--tandt-green); object-fit: cover;" loading="lazy">
         <span class="club-badge badge-tandt">T&T | 3rd – 6th Grade</span>
         <h2 class="director-name">Rufus</h2>
         <p class="director-title">Truth & Training Director</p>
@@ -393,7 +410,7 @@
 
       <!-- T&T Director 2 -->
       <div class="director-card">
-        <img src="images/Christine.jpg" alt="Christine - T&T Co-Director" class="photo-placeholder" style="border-color: var(--tandt-green); object-fit: cover;">
+        <img src="images/Christine.jpg" alt="Christine - T&T Co-Director" class="photo-placeholder" style="border-color: var(--tandt-green); object-fit: cover;" loading="lazy">
         <span class="club-badge badge-tandt">T&T | 3rd – 6th Grade</span>
         <h2 class="director-name">Christine</h2>
         <p class="director-title">Truth & Training Director</p>
@@ -404,7 +421,7 @@
 
       <!-- Trek -->
       <div class="director-card">
-        <img src="images/Tutu.png" alt="Tutu - Trek Director" class="photo-placeholder" style="border-color: var(--trek-purple); object-fit: cover;">
+        <img src="images/Tutu.png" alt="Tutu - Trek Director" class="photo-placeholder" style="border-color: var(--trek-purple); object-fit: cover;" loading="lazy">
         <span class="club-badge badge-trek">Trek | 7th – 9th Grade</span>
         <h2 class="director-name">Tutu</h2>
         <p class="director-title">Trek Club Director</p>
