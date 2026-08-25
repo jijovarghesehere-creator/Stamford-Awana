@@ -80,7 +80,126 @@
       margin: 0 auto;
     }
 
-    /* Grid Layout */
+    /* Featured General Director Hero Card */
+    .hero-director-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      border: 2px solid var(--awana-yellow);
+      box-shadow: 0 12px 24px -4px rgba(0, 82, 155, 0.1);
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-header {
+        flex-direction: row;
+        text-align: left;
+        gap: 2rem;
+      }
+    }
+
+    .hero-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--awana-blue);
+      flex-shrink: 0;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-photo {
+        margin-bottom: 0;
+      }
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: var(--awana-blue);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name {
+      color: var(--awana-dark-blue);
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-title {
+      color: var(--awana-blue);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-article {
+      color: var(--text-main);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* Director Family Photo Section */
+    .hero-family-section {
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px border-slate-200;
+      text-align: center;
+    }
+
+    .family-img-container {
+      width: 100%;
+      max-height: 420px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 3px solid var(--awana-blue);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .family-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .family-caption {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .section-title {
+      color: var(--awana-dark-blue);
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    /* Grid Layout for Club Directors */
     .directors-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -112,7 +231,7 @@
       box-shadow: 0 12px 20px -3px rgba(0, 82, 155, 0.12);
     }
 
-    /* Photo Placeholder / Image Styling */
+    /* Photo Styling */
     .photo-placeholder {
       width: 130px;
       height: 130px;
@@ -196,7 +315,7 @@
 
   <div class="container">
     
-    <!-- Header -->
+    <!-- Page Header -->
     <header class="header">
       <span class="header-tag">Leadership Team</span>
       <h1>Message from Our Directors</h1>
@@ -204,6 +323,34 @@
         Welcome to Stamford Awana! Our leadership team is committed to partnering with parents to help children know, love, and follow Jesus Christ every step of the way.
       </p>
     </header>
+
+    <!-- General Awana Director / Commander Feature -->
+    <section class="hero-director-card">
+      
+      <div class="hero-header">
+        <img src="images/Karen.jpeg" alt="Karen - Awana Director" class="hero-photo">
+        <div class="hero-content">
+          <span class="hero-badge">Awana Ministry Director</span>
+          <h2 class="hero-name">Karen</h2>
+          <p class="hero-title">General Awana Director</p>
+          <blockquote class="hero-article">
+            "Our 7 children grew up going to Awana every week and it had such an impact on our family! The activities, games, handbooks, awards and events created lifelong memories while building a strong spiritual foundation. Our kids are now grown, but I continue serving in Awana so that other families can be blessed and also, because I am still learning so much about God through being in the Club."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Family Photo Showcase -->
+      <div class="hero-family-section">
+        <div class="family-img-container">
+          <img src="images/Karen-Family.jpeg" alt="Karen and her family" class="family-photo">
+        </div>
+        <p class="family-caption">The Welborn Family — 7 kids raised in Awana!</p>
+      </div>
+
+    </section>
+
+    <!-- Section Heading for Club Directors -->
+    <h2 class="section-title">Our Club Directors</h2>
 
     <!-- Directors Grid -->
     <div class="directors-grid">
@@ -230,14 +377,25 @@
         </p>
       </div>
 
-      <!-- T&T -->
+      <!-- T&T Director 1 -->
       <div class="director-card">
         <img src="images/Rufus-T&T.png" alt="Rufus - T&T Director" class="photo-placeholder" style="border-color: var(--tandt-green); object-fit: cover;">
         <span class="club-badge badge-tandt">T&T | 3rd – 6th Grade</span>
         <h2 class="director-name">Rufus</h2>
         <p class="director-title">Truth & Training Director</p>
         <p class="message">
-          "Our T&T boys are encouraged to ask questions, discover biblical truth, and put their faith into action as they grow in their relationship with Jesus."
+          "Our T&T clubbers are encouraged to ask questions, discover biblical truth, and put their faith into action as they grow in their relationship with Jesus."
+        </p>
+      </div>
+
+      <!-- T&T Director 2 -->
+      <div class="director-card">
+        <img src="images/Christine.jpg" alt="T&T Co-Director" class="photo-placeholder" style="border-color: var(--tandt-green); object-fit: cover;">
+        <span class="club-badge badge-tandt">T&T | 3rd – 6th Grade</span>
+        <h2 class="director-name">Director</h2>
+        <p class="director-title">Truth & Training Director</p>
+        <p class="message">
+          "We are excited for T&T this year!  Our goal is to encourage the boys and girls to know God in a personal way, treasure His Word and live boldly for Christ in every aspect of their lives. We are excited to watch the biys and girls build friendships and to grow in faith together."
         </p>
       </div>
 
@@ -264,4 +422,3 @@
 
 </body>
 </html>
-
