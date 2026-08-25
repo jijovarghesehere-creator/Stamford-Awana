@@ -373,11 +373,7 @@
       <h3 class="text-2xl font-black text-[#030E20]">2026–2027 Club Calendar</h3>
     </div>
 
-    <!-- PDF Download Link -->
-    <a href="assets/Calendar Print View - Clubbers.pdf" target="_blank" download class="inline-flex items-center gap-2 bg-[#00AEEF] hover:bg-[#0086B8] text-white font-bold px-5 py-2.5 rounded-xl transition-colors text-sm shrink-0">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-      Download PDF Calendar
-    </a>
+    
   </div>
 
   <!-- Loading State -->
@@ -399,11 +395,22 @@
       </tbody>
     </table>
   </div>
+
+  <!-- View More / Less Toggle Button -->
+  <div id="toggle-container" class="mt-4 text-center hidden">
+    <button id="toggle-btn" onclick="toggleEvents()" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-2.5 rounded-xl transition-colors text-sm">
+      <span id="toggle-text">View All Upcoming Events</span>
+      <svg id="toggle-icon" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+  </div>
+
 </div>
 
 <script>
-  const SHEET_ID = '1Pt_gYp0CtrEU0rsVAojlVj0VVVgw9HwTgYTLzOcOs88'; // Replace with your actual Sheet ID
+  const SHEET_ID = 'YOUR_SHEET_ID_HERE'; // Replace with your actual Sheet ID
   const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+  
+  let isExpanded = false;
 
   function parseGoogleSheetDateObj(val) {
     if (!val) return null;
@@ -415,6 +422,29 @@
       return new Date(year, month, day);
     }
     return null;
+  }
+
+  function toggleEvents() {
+    isExpanded = !isExpanded;
+    const extraRows = document.querySelectorAll('.extra-row');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleIcon = document.getElementById('toggle-icon');
+
+    extraRows.forEach(row => {
+      if (isExpanded) {
+        row.classList.remove('hidden');
+      } else {
+        row.classList.add('hidden');
+      }
+    });
+
+    if (isExpanded) {
+      toggleText.innerText = 'Show Less';
+      toggleIcon.classList.add('rotate-180');
+    } else {
+      toggleText.innerText = 'View All Upcoming Events';
+      toggleIcon.classList.remove('rotate-180');
+    }
   }
 
   fetch(SHEET_URL)
@@ -437,7 +467,7 @@
         const eventDateObj = parseGoogleSheetDateObj(rawDate);
         const theme = row.c[1] ? (row.c[1].v || '') : '';
 
-        // Only show future events
+        // Filter: Only future events
         if (eventDateObj && eventDateObj >= today && theme) {
           futureEventsCount++;
 
@@ -448,11 +478,14 @@
             year: 'numeric' 
           });
 
-          // Alternating row colors (Even rows get light slate background)
+          // Alternating row background colors
           const bgClass = futureEventsCount % 2 === 0 ? 'bg-slate-50' : 'bg-white';
+          
+          // Hide rows past the first 5
+          const hideClass = futureEventsCount > 5 ? 'hidden extra-row' : '';
 
           const tr = document.createElement('tr');
-          tr.className = `${bgClass} hover:bg-sky-50 transition-colors border-b border-slate-100`;
+          tr.className = `${bgClass} ${hideClass} hover:bg-sky-50 transition-colors border-b border-slate-100`;
           tr.innerHTML = `
             <td class="p-3.5 font-bold text-[#00AEEF] whitespace-nowrap">${formattedDate}</td>
             <td class="p-3.5 font-bold text-slate-800">${theme}</td>
@@ -466,13 +499,18 @@
       } else {
         document.getElementById('calendar-loading').classList.add('hidden');
         document.getElementById('calendar-table').classList.remove('hidden');
+        
+        // Only show "View All" button if there are more than 5 events
+        if (futureEventsCount > 5) {
+          document.getElementById('toggle-container').classList.remove('hidden');
+        }
       }
     })
     .catch(err => {
       console.error(err);
       document.getElementById('calendar-loading').innerText = 'Unable to load schedule. Please verify your Google Sheet ID.';
     });
-</script> 
+</script>
     </div>
 </section>
 
