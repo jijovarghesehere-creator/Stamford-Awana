@@ -160,7 +160,7 @@
       font-style: italic;
     }
 
-    /* Director Family Photo Section - Adjusted for 934x1600 Vertical Portrait */
+    /* Director Family Photo Section — 50% Scaled Full Image */
     .hero-family-section {
       margin-top: 2rem;
       padding-top: 1.75rem;
@@ -170,21 +170,20 @@
 
     .family-img-container {
       width: 100%;
-      max-width: 500px; /* Constrains wide expansion for vertical images */
-      height: 480px;    /* Prevents excessive vertical scrolling */
+      max-width: 250px;  /* Reduced by 50% */
+      max-height: 400px; /* Reduced by 50% */
       margin: 0 auto;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 3px solid var(--awana-blue);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      background-color: #E2E8F0;
+      background-color: #F8FAFC;
     }
 
     .family-photo {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: top center; /* Keeps family faces in view */
+      object-fit: contain; /* Ensures 100% of image is fully visible without cropping */
       display: block;
     }
 
@@ -335,8 +334,8 @@
         <img src="images/Karen.jpeg" alt="Karen - Awana Director" class="hero-photo">
         <div class="hero-content">
           <span class="hero-badge">Awana Ministry Director</span>
-          <h2 class="hero-name">Karen</h2>
-          <p class="hero-title">General Awana Director</p>
+          <h2 class="hero-name">Karen Welborn</h2>
+          <p class="hero-title">Awana Director</p>
           <blockquote class="hero-article">
             "Our 7 children grew up going to Awana every week and it had such an impact on our family! The activities, games, handbooks, awards and events created lifelong memories while building a strong spiritual foundation. Our kids are now grown, but I continue serving in Awana so that other families can be blessed and also, because I am still learning so much about God through being in the Club."
           </blockquote>
