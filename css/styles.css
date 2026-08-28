@@ -1,0 +1,324 @@
+:root {
+  /* Stamford Awana Brand Palette */
+  --awana-blue: #00529B;
+  --awana-red: #E31837;
+  --awana-yellow: #FFB81C;
+  --awana-dark-blue: #0A2540;
+  
+  /* Club Specific Colors */
+  --cubbies-blue: #76bce8;
+  --sparks-red: #D82A2A;
+  --tandt-green: #2E7D32;
+  --trek-purple: #003399;
+
+  /* UI Surfaces & Text */
+  --bg-light: #F4F7FA;
+  --card-bg: #FFFFFF;
+  --text-main: #1A202C;
+  --text-muted: #4A5568;
+  --border-color: #E2E8F0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 2.5rem 1rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Page Header */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid var(--awana-yellow);
+}
+
+.header-tag {
+  display: inline-block;
+  background-color: var(--awana-red);
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  color: var(--awana-blue);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* General Director Hero Card */
+.hero-director-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  border: 2px solid var(--awana-yellow);
+  box-shadow: 0 10px 20px -4px rgba(0, 82, 155, 0.08);
+  margin-bottom: 3.5rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-director-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -8px rgba(0, 82, 155, 0.15);
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-header {
+    flex-direction: row;
+    text-align: left;
+    gap: 2rem;
+  }
+}
+
+.hero-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--awana-blue);
+  box-shadow: 0 0 0 4px var(--card-bg), 0 8px 16px rgba(0, 82, 155, 0.15);
+  flex-shrink: 0;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .hero-photo {
+    margin-bottom: 0;
+  }
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  background-color: var(--awana-blue);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  color: var(--awana-dark-blue);
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.hero-title {
+  color: var(--awana-blue);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Enhanced Quote Formatting */
+.hero-article {
+  color: var(--text-main);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-style: italic;
+  position: relative;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--awana-yellow);
+}
+
+/* Scaled Family Photo Showcase */
+.hero-family-section {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.family-img-container {
+  width: 100%;
+  max-width: 260px;
+  max-height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 3px solid var(--awana-blue);
+  box-shadow: 0 0 0 3px var(--card-bg), 0 8px 20px rgba(0, 0, 0, 0.12);
+  background-color: #F8FAFC;
+  transition: transform 0.3s ease;
+}
+
+.hero-director-card:hover .family-img-container {
+  transform: scale(1.02);
+}
+
+.family-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.family-caption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.section-title {
+  color: var(--awana-dark-blue);
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Grid Layout for Club Directors */
+.directors-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .directors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Director Card */
+.director-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.director-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 25px -5px rgba(0, 82, 155, 0.12);
+}
+
+/* Photo Styling */
+.photo-placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: #E2E8F0;
+  margin-bottom: 1.25rem;
+  border: 4px solid var(--awana-blue);
+  box-shadow: 0 0 0 3px var(--card-bg), 0 6px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+/* Club Badges */
+.club-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+  color: #FFFFFF;
+}
+
+.badge-cubbies { background-color: var(--cubbies-blue); }
+.badge-sparks  { background-color: var(--sparks-red); }
+.badge-tandt   { background-color: var(--tandt-green); }
+.badge-trek    { background-color: var(--trek-purple); }
+
+.director-name {
+  color: var(--awana-dark-blue);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.director-title {
+  color: var(--awana-blue);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.message {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* Contact Section CTA */
+.footer-cta {
+  margin-top: 3.5rem;
+  background: linear-gradient(135deg, var(--awana-blue) 0%, var(--awana-dark-blue) 100%);
+  color: #FFFFFF;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(0, 82, 155, 0.2);
+}
+
+.footer-cta h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-cta p {
+  color: #E2E8F0;
+  font-size: 1.05rem;
+}
+
+.footer-cta a {
+  color: var(--awana-yellow);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-cta a:hover {
+  text-decoration: underline;
+}
