@@ -365,137 +365,140 @@
 
 
     <!-- Full Directors' Message (integrated in-page, formerly Dir-message.html) -->
-    <section id="full-letter" class="scroll-mt-24 bg-white py-20 px-6 border-t border-slate-100">
-        <div class="max-w-5xl mx-auto">
+<!-- Full Directors' Message (integrated in-page) -->
+    <section id="full-letter" class="scroll-mt-24 bg-white py-16 px-6 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto">
 
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="text-awanaRed font-extrabold uppercase tracking-widest text-sm mb-3 block">From Our Leadership</span>
-                <h2 class="text-3xl md:text-5xl font-black text-[#030E20] mb-6 tracking-tight">Message from Our Directors</h2>
-                <p class="text-slate-600 text-lg font-medium leading-relaxed">
-                    Welcome to Stamford Awana! Our leadership team is committed to partnering with parents to help children know, love, and follow Jesus Christ every step of the way.
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-awanaRed font-extrabold uppercase tracking-widest text-xs mb-2 block">From Our Leadership</span>
+                <h2 class="text-3xl md:text-4xl font-black text-[#030E20] mb-3 tracking-tight">Message from Our Directors</h2>
+                <p class="text-slate-600 text-base font-medium leading-relaxed">
+                    Welcome to Stamford Awana! Our leadership team is committed to partnering with parents to help children know, love, and follow Jesus Christ.
                 </p>
             </div>
 
-            <!-- Karen Welborn — Director feature -->
-            <div class="grid md:grid-cols-[220px_1fr] gap-8 md:gap-10 items-start bg-slate-50 rounded-3xl p-8 md:p-10 border border-slate-100 shadow-sm mb-16">
-                <img src="images/Karen.jpeg" alt="Karen Welborn, Awana Director" width="220" height="220" loading="lazy" class="w-32 h-32 md:w-full md:h-auto aspect-square rounded-2xl object-cover mx-auto md:mx-0 ring-4 ring-awanaGold/40 shadow-md">
-                <div class="text-center md:text-left">
-                    <span class="inline-block text-[10px] font-extrabold uppercase tracking-widest text-awanaNavy bg-awanaGold/25 px-2.5 py-1 rounded-md mb-3">Awana Director</span>
-                    <h3 class="text-2xl md:text-3xl font-black text-slate-900">Karen Welborn</h3>
-                    <p class="text-slate-500 font-bold text-sm mb-5">Director</p>
-                    <blockquote class="font-letter italic text-lg md:text-xl text-awanaNavy leading-relaxed border-l-4 border-awanaGold pl-5 md:pl-6 text-left relative msg-fade" style="--fade-color:#f8fafc;">
-                        <div class="msg-scroll space-y-4 max-h-40 md:max-h-48 pr-3" tabindex="0" role="region" aria-label="Full message, scrollable">
+            <!-- 2-Column Section Layout: Karen on Left, Club Directors on Right -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- LEFT COLUMN: Karen Welborn (Awana Director) -->
+                <div class="lg:col-span-5 bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-200/80 shadow-sm flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="images/Karen.jpeg" alt="Karen Welborn, Awana Director" width="80" height="80" loading="lazy" class="w-20 h-20 rounded-2xl object-cover ring-4 ring-awanaGold/40 shadow-md shrink-0">
+                        <div>
+                            <span class="inline-block text-[10px] font-extrabold uppercase tracking-widest text-awanaNavy bg-awanaGold/25 px-2.5 py-0.5 rounded-md mb-1">Awana Director</span>
+                            <h3 class="text-xl md:text-2xl font-black text-slate-900">Karen Welborn</h3>
+                            <p class="text-slate-500 font-bold text-xs">Director</p>
+                        </div>
+                    </div>
+
+                    <blockquote class="font-letter italic text-base text-awanaNavy leading-relaxed border-l-4 border-awanaGold pl-4 text-left relative msg-fade flex-1" style="--fade-color:#f8fafc;">
+                        <div class="msg-scroll space-y-3 max-h-72 lg:max-h-80 pr-2 text-sm md:text-base" tabindex="0" role="region" aria-label="Karen Welborn's message, scrollable">
                             <p>"Through the years, I watched my seven children grow in God's Word and in their faith through Awana, and now have the joy of seeing this passed on to my grandchildren.</p>
                             <p>Today, I am honored to serve as Director, with a heartfelt desire to help every child discover the joy of knowing Jesus and growing in His Word.</p>
                             <p>Serving with joy, leading with faith, and inspiring every child to know and love Jesus. Together, we are planting seeds of God's Word that will grow for a lifetime."</p>
                         </div>
                     </blockquote>
                 </div>
-            </div>
 
-            <!-- Club Directors -->
-            <h3 class="text-2xl md:text-3xl font-black text-slate-900 text-center mb-10">Our Club Directors</h3>
+                <!-- RIGHT COLUMN: Club Directors (Scrollable List/Grid) -->
+                <div class="lg:col-span-7 bg-slate-50/50 rounded-3xl p-6 border border-slate-200/60 flex flex-col">
+                    <div class="flex items-center justify-between mb-4 px-1">
+                        <h3 class="text-lg font-black text-slate-900 uppercase tracking-wide">Our Club Directors</h3>
+                        <span class="text-xs text-slate-400 font-bold">Scroll for more ↓</span>
+                    </div>
 
-            <div class="relative">
-            <div id="directors-carousel" class="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-2">
+                    <div class="msg-scroll max-h-[520px] overflow-y-auto pr-2 space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-                <!-- Cubbies -->
-                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
-                    <img src="images/Roccio-Cubbies.jpeg" alt="Roccio La Torre, Cubbies Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#76bce8]/50 mb-4">
-                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#003399] bg-[#76bce8]/30 px-2.5 py-1 rounded-md mb-3">Cubbies | Ages 3 – Pre-K</span>
-                    <h4 class="text-lg font-black text-slate-900">Roccio La Torre</h4>
-                    <p class="text-slate-500 font-bold text-xs mb-3">Cubbies Club Director</p>
-                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
-                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
-                            <p class="text-slate-600 text-sm leading-relaxed italic">
-                            "Our goal in Cubbies is to help preschoolers build a strong foundation of faith by learning Bible truths through stories, songs, and games, while making every Awana night fun, safe, and memorable."
-                        </p>
+                            <!-- Cubbies -->
+                            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <img src="images/Roccio-Cubbies.jpeg" alt="Roccio La Torre" class="w-12 h-12 rounded-full object-cover ring-2 ring-[#76bce8]/50 shrink-0">
+                                        <div>
+                                            <h4 class="text-base font-black text-slate-900 leading-tight">Roccio La Torre</h4>
+                                            <p class="text-slate-500 font-bold text-[11px]">Cubbies Director</p>
+                                        </div>
+                                    </div>
+                                    <span class="inline-block text-[9px] font-extrabold uppercase tracking-widest text-[#003399] bg-[#76bce8]/20 px-2 py-0.5 rounded mb-3">Ages 3 – Pre-K</span>
+                                    <p class="text-slate-600 text-xs leading-relaxed italic">
+                                        "Our goal in Cubbies is to help preschoolers build a strong foundation of faith by learning Bible truths through stories, songs, and games..."
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Sparks -->
+                            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <img src="images/Jyoti-Sparks.jpg" alt="Jyothi Moody" class="w-12 h-12 rounded-full object-cover ring-2 ring-[#d32f2f]/40 shrink-0">
+                                        <div>
+                                            <h4 class="text-base font-black text-slate-900 leading-tight">Jyothi Moody</h4>
+                                            <p class="text-slate-500 font-bold text-[11px]">Sparks Director</p>
+                                        </div>
+                                    </div>
+                                    <span class="inline-block text-[9px] font-extrabold uppercase tracking-widest text-[#d32f2f] bg-[#d32f2f]/10 px-2 py-0.5 rounded mb-3">K – 2nd Grade</span>
+                                    <p class="text-slate-600 text-xs leading-relaxed italic">
+                                        "Sparks helps children discover the excitement of knowing God and His Word. We encourage them to hide Scripture in their hearts while growing in faith..."
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- T&T Boys -->
+                            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <img src="images/Rufus.jpeg" alt="Rufus Moody" class="w-12 h-12 rounded-full object-cover ring-2 ring-[#41ad49]/40 shrink-0">
+                                        <div>
+                                            <h4 class="text-base font-black text-slate-900 leading-tight">Rufus Moody</h4>
+                                            <p class="text-slate-500 font-bold text-[11px]">T&T Boys Director</p>
+                                        </div>
+                                    </div>
+                                    <span class="inline-block text-[9px] font-extrabold uppercase tracking-widest text-[#41ad49] bg-[#41ad49]/10 px-2 py-0.5 rounded mb-3">3rd – 6th Grade</span>
+                                    <p class="text-slate-600 text-xs leading-relaxed italic">
+                                        "Our T&T clubbers are encouraged to ask questions, discover biblical truth, and put their faith into action as they grow in their relationship with Jesus."
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- T&T Girls -->
+                            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <img src="images/Christine.jpg" alt="Christine Brookfield" class="w-12 h-12 rounded-full object-cover ring-2 ring-[#41ad49]/40 shrink-0">
+                                        <div>
+                                            <h4 class="text-base font-black text-slate-900 leading-tight">Christine Brookfield</h4>
+                                            <p class="text-slate-500 font-bold text-[11px]">T&T Girls Director</p>
+                                        </div>
+                                    </div>
+                                    <span class="inline-block text-[9px] font-extrabold uppercase tracking-widest text-[#41ad49] bg-[#41ad49]/10 px-2 py-0.5 rounded mb-3">3rd – 6th Grade</span>
+                                    <p class="text-slate-600 text-xs leading-relaxed italic">
+                                        "We are excited for T&T this year! Our goal is to encourage the girls to know God in a personal way, treasure His Word and live boldly for Christ..."
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Trek -->
+                            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-5 sm:col-span-2 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <img src="images/Tutu.png" alt="Tutu Olomola" class="w-12 h-12 rounded-full object-cover ring-2 ring-[#003399]/40 shrink-0">
+                                        <div>
+                                            <h4 class="text-base font-black text-slate-900 leading-tight">Tutu Olomola</h4>
+                                            <p class="text-slate-500 font-bold text-[11px]">Trek Director</p>
+                                        </div>
+                                    </div>
+                                    <span class="inline-block text-[9px] font-extrabold uppercase tracking-widest text-[#003399] bg-[#003399]/10 px-2 py-0.5 rounded mb-3">7th – 9th Grade</span>
+                                    <p class="text-slate-600 text-xs leading-relaxed italic">
+                                        "Our heart is to walk alongside young men and women as they grow in confidence, wisdom, and faith, helping them see how God's truth shapes every part of their lives."
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                </div>
 
-                <!-- Sparks -->
-                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
-                    <img src="images/Jyoti-Sparks.jpg" alt="Jyothi Moody, Sparks Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#d32f2f]/40 mb-4">
-                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#d32f2f] bg-[#d32f2f]/10 px-2.5 py-1 rounded-md mb-3">Sparks | K – 2nd Grade</span>
-                    <h4 class="text-lg font-black text-slate-900">Jyothi Moody</h4>
-                    <p class="text-slate-500 font-bold text-xs mb-3">Sparks Director</p>
-                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
-                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
-                            <p class="text-slate-600 text-sm leading-relaxed italic">
-                            "Sparks helps children discover the excitement of knowing God and His Word. We encourage them to hide Scripture in their hearts while growing in faith, friendship, and confidence."
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- T&T Boys -->
-                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
-                    <img src="images/Rufus.jpeg" alt="Rufus Moody, T&T Boys Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#41ad49]/40 mb-4">
-                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#41ad49] bg-[#41ad49]/10 px-2.5 py-1 rounded-md mb-3">T&T | 3rd – 6th Grade</span>
-                    <h4 class="text-lg font-black text-slate-900">Rufus Moody</h4>
-                    <p class="text-slate-500 font-bold text-xs mb-3">T&T Boys Director</p>
-                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
-                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
-                            <p class="text-slate-600 text-sm leading-relaxed italic">
-                            "Our T&T clubbers are encouraged to ask questions, discover biblical truth, and put their faith into action as they grow in their relationship with Jesus."
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- T&T Girls -->
-                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
-                    <img src="images/Christine.jpg" alt="Christine Brookfield, T&T Girls Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#41ad49]/40 mb-4">
-                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#41ad49] bg-[#41ad49]/10 px-2.5 py-1 rounded-md mb-3">T&T | 3rd – 6th Grade</span>
-                    <h4 class="text-lg font-black text-slate-900">Christine Brookfield</h4>
-                    <p class="text-slate-500 font-bold text-xs mb-3">T&T Girls Director</p>
-                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
-                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
-                            <p class="text-slate-600 text-sm leading-relaxed italic">
-                            "We are excited for T&T this year! Our goal is to encourage the girls to know God in a personal way, treasure His Word and live boldly for Christ in every aspect of their lives. We are excited to watch the girls build friendships and to grow in faith together."
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Trek -->
-                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
-                    <img src="images/Tutu.png" alt="Tutu Olomola, Trek Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#003399]/40 mb-4">
-                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#003399] bg-[#003399]/10 px-2.5 py-1 rounded-md mb-3">Trek | 7th – 9th Grade</span>
-                    <h4 class="text-lg font-black text-slate-900">Tutu Olomola</h4>
-                    <p class="text-slate-500 font-bold text-xs mb-3">Trek Director</p>
-                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
-                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
-                            <p class="text-slate-600 text-sm leading-relaxed italic">
-                            "Our heart is to walk alongside young men and women as they grow in confidence, wisdom, and faith, helping them see how God's truth shapes every part of their lives."
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-            </div>
-
-            <!-- Carousel controls -->
-            <div class="flex items-center justify-center gap-5 mt-8">
-                <button id="dir-prev" type="button" aria-label="Previous director" class="w-10 h-10 shrink-0 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-awanaNavy hover:bg-slate-50 hover:border-slate-300 transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-                <div id="dir-dots" class="flex items-center gap-2" role="tablist" aria-label="Select a director"></div>
-                <button id="dir-next" type="button" aria-label="Next director" class="w-10 h-10 shrink-0 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-awanaNavy hover:bg-slate-50 hover:border-slate-300 transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-            </div>
             </div>
         </div>
     </section>
