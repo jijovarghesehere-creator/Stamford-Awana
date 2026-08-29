@@ -6,10 +6,22 @@
     <title>Awana Clubs Stamford | Midweek Youth Discipleship</title>
     <meta name="description" content="Join Stamford Awana Clubs for midweek youth discipleship. Where kids learn about Jesus, build friendships, and have fun! Register for fall 2026 today.">
     <link rel="icon" type="image/jpeg" href="https://clubs.awana.org/wp-content/uploads/2025/04/awana-clubs-logo-color-1.jpg">
-    
+
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:title" content="Awana Clubs Stamford | Midweek Youth Discipleship">
+    <meta property="og:description" content="Join Stamford Awana Clubs for midweek youth discipleship. Where kids learn about Jesus, build friendships, and have fun! Register for fall 2026 today.">
+    <meta property="og:image" content="https://clubs.awana.org/wp-content/uploads/2025/04/awana-clubs-logo-color-1.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Awana Clubs Stamford | Midweek Youth Discipleship">
+    <meta name="twitter:description" content="Join Stamford Awana Clubs for midweek youth discipleship. Where kids learn about Jesus, build friendships, and have fun!">
+
     <link rel="stylesheet" href="css/styles.css">
-    
+
     <!-- Tailwind CSS -->
+    <!-- NOTE: Play CDN is fine for prototyping, but Tailwind's own docs advise against
+         using it in production (ships full JIT compiler, no purge, recompiles client-side).
+         Recommend precompiling to a static stylesheet at build time before launch. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -39,6 +51,8 @@
       "@type": "LocalBusiness",
       "name": "Stamford Awana Clubs",
       "description": "Midweek Bible-centered ministry helping children know, love, and serve Jesus Christ.",
+      "url": "https://clubs.awana.org/",
+      "image": "https://clubs.awana.org/wp-content/uploads/2025/04/awana-clubs-logo-color-1.jpg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "602 High Ridge Rd",
@@ -49,7 +63,7 @@
     }
     </script>
     <script src="scripts/navbar.js" defer></script>
-    
+
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-awanaNavy selection:text-white pb-20 md:pb-0">
 
@@ -60,10 +74,10 @@
     <!-- Hero Section -->
     <header class="relative bg-awanaNavy text-white py-28 px-6 text-center overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-70 mix-blend-overlay">
-            <img src="images/Sparkies.jpg?auto=format&fit=crop&w=1600&q=80" alt="Group of cheerful children" class="w-full h-full object-cover">
+            <img src="images/Sparkies.jpg" alt="Group of cheerful children" width="1600" height="900" class="w-full h-full object-cover">
         </div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-awanaNavy/95 z-0"></div>
-        
+
         <div class="max-w-4xl mx-auto relative z-10">
             <span class="bg-awanaRed text-white text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
                 Midweek Bible Curriculum
@@ -86,14 +100,14 @@
                 </span>
             </h1>
             <p class="text-lg md:text-xl text-slate-200 max-w-5xl mx-auto mb-6 font-medium leading-relaxed drop-shadow-sm">
-                Awana stands for <b>Approved Workmen Are Not Ashamed</b>, based on <b>2 Timothy 2:15</b>. Through fun and engaging club nights, kids discover God's incredible love for them as they learn to know, love and follow Jesus. 
+                Awana stands for <b>Approved Workmen Are Not Ashamed</b>, based on <b>2 Timothy 2:15</b>. Through fun and engaging club nights, kids discover God's incredible love for them as they learn to know, love and follow Jesus.
             </p>
 
             <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-slate-100 max-w-3xl mx-auto mb-10 text-sm md:text-base leading-relaxed border border-white/15 shadow-inner">
-                AWANA was founded in 1950 in Chicago and is a nondenominational, Bible-based, Christ-centered club that welcomes children from all backgrounds, both churched and unchurched. Today, with an unwavering commitment to the Gospel, AWANA is being used to reach over 5 million kids weekly in 134 countries. The program gives children and youth from every background an opportunity to know, love, and serve Jesus for a lifetime. 
+                AWANA was founded in 1950 in Chicago and is a nondenominational, Bible-based, Christ-centered club that welcomes children from all backgrounds, both churched and unchurched. Today, with an unwavering commitment to the Gospel, AWANA is being used to reach over 5 million kids weekly in 134 countries. The program gives children and youth from every background an opportunity to know, love, and serve Jesus for a lifetime.
                 <a href="https://www.awana.org/our-beliefs/" target="_blank" rel="noopener noreferrer" class="text-awanaGold font-bold underline hover:text-amber-300 transition ml-1 inline-flex items-center gap-1">
                     Click here to read AWANA's Our Beliefs
-                    <svg class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    <svg class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
             </div>
 
@@ -140,7 +154,7 @@
                     <div class="absolute -top-8 left-8 w-16 h-16 bg-[#F9A826] text-[#030E20] rounded-2xl flex items-center justify-center text-2xl font-black shadow-lg transform rotate-3">3</div>
                     <h3 class="text-2xl font-black text-slate-900 mb-3">Large Group Time</h3>
                     <p class="text-slate-600 font-medium leading-relaxed">
-                        Kids gather together for engaging worship, interactive Bible lessons, awards recognition, and practical practical life applications.
+                        Kids gather together for engaging worship, interactive Bible lessons, awards recognition, and practical life applications.
                     </p>
                 </div>
             </div>
@@ -151,7 +165,7 @@
 <!-- Sleek & Compact Parent Testimonials (Full Original Text) -->
 <section class="py-10 bg-slate-100/80 border-y border-slate-200/80 relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 relative z-10">
-        
+
         <!-- Compact Section Header -->
         <div class="text-center mb-8">
             <span class="text-awanaRed font-extrabold uppercase tracking-widest text-[11px] bg-white px-3 py-1 rounded-full shadow-2xs border border-red-100">
@@ -164,7 +178,7 @@
 
         <!-- 3-Column Tighter Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            
+
             <!-- Testimony 1: The Benedict Family -->
             <div class="bg-white p-6 rounded-2xl shadow-2xs border border-slate-200/80 flex flex-col justify-between hover:border-slate-300 transition">
                 <p class="text-slate-700 font-medium leading-relaxed italic text-xs md:text-sm mb-6">
@@ -207,7 +221,7 @@
         </div>
     </div>
 </section>
-    
+
     <!-- Club Classrooms Breakdown -->
     <section id="clubs" class="bg-slate-50 py-20 px-6">
         <div class="max-w-5xl mx-auto">
@@ -218,7 +232,7 @@
                 <!-- Cubbies -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                     <div>
-                        <img src="images/Cubbies.jpg?auto=format&fit=crop&w=500&h=300&q=80" alt="Preschool child learning" class="w-full h-44 object-cover">
+                        <img src="images/Cubbies.jpg" alt="Preschool child learning" width="500" height="300" loading="lazy" class="w-full h-44 object-cover">
                         <div class="p-6">
                             <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#003399] bg-[#76bce8]/30 px-2.5 py-1 rounded-md">Preschoolers</span>
                             <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">Cubbies</h3>
@@ -231,7 +245,7 @@
                 <!-- Sparks -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                     <div>
-                        <img src="images/Sparks.jpg?auto=format&fit=crop&w=500&h=300&q=80" alt="Young school children" class="w-full h-44 object-cover">
+                        <img src="images/Sparks.jpg" alt="Young school children" width="500" height="300" loading="lazy" class="w-full h-44 object-cover">
                         <div class="p-6">
                             <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#d32f2f] bg-[#d32f2f]/10 px-2.5 py-1 rounded-md">Early Elementary</span>
                             <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">Sparks</h3>
@@ -244,7 +258,7 @@
                 <!-- T&T -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                     <div>
-                        <img src="images/T&T.jpg?auto=format&fit=crop&w=500&h=300&q=80" alt="Group of older children" class="w-full h-44 object-cover">
+                        <img src="images/T&T.jpg" alt="Group of older children" width="500" height="300" loading="lazy" class="w-full h-44 object-cover">
                         <div class="p-6">
                             <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#41ad49] bg-[#41ad49]/10 px-2.5 py-1 rounded-md">Upper Elementary</span>
                             <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">T&T</h3>
@@ -257,7 +271,7 @@
                 <!-- Trek -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                     <div>
-                        <img src="images/Trek.jpg?auto=format&fit=crop&w=500&h=300&q=80" alt="Group of middle school students" class="w-full h-44 object-cover">
+                        <img src="images/Trek.jpg" alt="Group of middle school students" width="500" height="300" loading="lazy" class="w-full h-44 object-cover">
                         <div class="p-6">
                             <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#003399] bg-[#003399]/10 px-2.5 py-1 rounded-md">Middle & High School</span>
                             <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">Trek</h3>
@@ -275,15 +289,15 @@
     <section id="directors-callout" class="py-6 bg-slate-50 px-6">
         <div class="max-w-5xl mx-auto">
             <div class="bg-awanaNavy rounded-2xl p-5 md:p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-800">
-                
+
                 <div class="flex items-center gap-4 text-center sm:text-left">
                     <div class="hidden sm:flex w-10 h-10 bg-awanaRed/20 text-awanaRed rounded-full items-center justify-center shrink-0">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
                         </svg>
                     </div>
                     <div>
-                    
+
                         <p class="text-slate-300 text-xs md:text-sm font-medium mt-0.5">
                             Hear from the Club Director's.
                         </p>
@@ -292,7 +306,7 @@
 
                 <a href="Dir-message.html" class="shrink-0 w-full sm:w-auto bg-awanaGold hover:bg-amber-400 text-slate-900 font-bold px-4 py-2 rounded-lg text-xs shadow transition text-center inline-flex items-center justify-center gap-1.5">
                     <span>Read Message</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
                 </a>
@@ -316,10 +330,10 @@
                 <!-- Time & Schedule Card -->
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-slate-100 relative overflow-hidden flex flex-col justify-center">
                     <div class="absolute -top-16 -right-16 w-48 h-48 bg-[#F9A826] opacity-10 rounded-full pointer-events-none"></div>
-                    
+
                     <div class="flex items-center space-x-5 mb-8">
                         <div class="w-16 h-16 bg-[#F9A826]/20 text-[#F9A826] rounded-2xl flex items-center justify-center shrink-0">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <div>
                             <h3 class="text-2xl font-black text-slate-900">Every Thursday</h3>
@@ -330,17 +344,17 @@
                     <div class="space-y-6">
                         <div class="flex items-start space-x-4">
                             <div class="mt-1 w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 text-[#030E20]">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
                                 <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide">Club Begins at 6:30 PM</h4>
                                 <p class="text-slate-600 text-sm mt-1 font-medium">Arrival is 6:00 -6:30 pm with a fun pre-club activity for the whole family : Praise Power</p>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start space-x-4">
                             <div class="mt-1 w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 text-[#030E20]">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div>
                                 <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wide">Club Calendar</h4>
@@ -355,7 +369,7 @@
                     <div class="p-8 md:p-10">
                         <div class="flex items-center space-x-5 mb-6">
                             <div class="w-16 h-16 bg-[#030E20]/10 text-[#030E20] rounded-2xl flex items-center justify-center shrink-0">
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <div>
                                 <h3 class="text-2xl font-black text-slate-900">Stamford Baptist Church</h3>
@@ -365,13 +379,14 @@
                     </div>
 
                     <div class="w-full h-64 md:h-full min-h-[250px] bg-slate-200 relative">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.1568285511195!2d-73.5458026!3d41.1092659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2a1c0d0a520bf%3A0xc331a1cc0a5d2a6a!2s602%20High%20Ridge%20Rd%2C%20Stamford%2C%20CT%2006905!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0; position: absolute; top:0; left:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
+                        <iframe
+                            title="Map showing Stamford Baptist Church location"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.1568285511195!2d-73.5458026!3d41.1092659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2a1c0d0a520bf%3A0xc331a1cc0a5d2a6a!2s602%20High%20Ridge%20Rd%2C%20Stamford%2C%20CT%2006905!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                            width="100%"
+                            height="100%"
+                            style="border:0; position: absolute; top:0; left:0;"
+                            allowfullscreen=""
+                            loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
@@ -416,7 +431,7 @@
             <div id="toggle-container" class="mt-4 text-center hidden">
                 <button id="toggle-btn" onclick="toggleEvents()" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-2.5 rounded-xl transition-colors text-sm">
                     <span id="toggle-text">View All Upcoming Events</span>
-                    <svg id="toggle-icon" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg id="toggle-icon" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
             </div>
         </div>
@@ -441,7 +456,7 @@
             <h3 class="text-xl font-black text-slate-900 tracking-tight mb-2">Have Questions?</h3>
             <p class="text-slate-600 text-sm mb-6">Reach out to our leadership team and we'll be happy to help!</p>
             <a href="mailto:KarenWelbornAwana@gmail.com" class="inline-flex items-center space-x-2 text-awanaNavy hover:text-awanaRed font-bold text-base transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 <span>KarenWelbornAwana@gmail.com</span>
             </a>
         </div>
@@ -461,7 +476,7 @@
     <script>
       const SHEET_ID = '1Pt_gYp0CtrEU0rsVAojlVj0VVVgw9HwTgYTLzOcOs88';
       const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
-      
+
       let isExpanded = false;
 
       function parseGoogleSheetDateObj(val) {
@@ -522,11 +537,11 @@
             if (eventDateObj && eventDateObj >= today && theme) {
               futureEventsCount++;
 
-              const formattedDate = eventDateObj.toLocaleDateString('en-US', { 
+              const formattedDate = eventDateObj.toLocaleDateString('en-US', {
                 weekday: 'short',
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric' 
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
               });
 
               const bgClass = futureEventsCount % 2 === 0 ? 'bg-slate-50' : 'bg-white';
@@ -547,7 +562,7 @@
           } else {
             document.getElementById('calendar-loading').classList.add('hidden');
             document.getElementById('calendar-table').classList.remove('hidden');
-            
+
             if (futureEventsCount > 5) {
               document.getElementById('toggle-container').classList.remove('hidden');
             }
@@ -555,7 +570,7 @@
         })
         .catch(err => {
           console.error(err);
-          document.getElementById('calendar-loading').innerText = 'Unable to load schedule. Please verify your Google Sheet ID and permissions.';
+          document.getElementById('calendar-loading').innerText = 'Calendar temporarily unavailable — please check back soon.';
         });
     </script>
 </body>
