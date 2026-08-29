@@ -19,6 +19,8 @@ class SiteNavbar extends HTMLElement {
                   <a href="index.html#how-it-works" class="hover:text-[#e31b23] transition">What to Expect</a>
                   <a href="index.html#clubs" class="hover:text-[#e31b23] transition">Clubs</a>
                   <a href="index.html#location-time" class="hover:text-[#e31b23] transition">Time & Location</a>
+                  <a href="index.html#lLive-Calendar" class="hover:text-[#e31b23] transition">Calendar</a>
+                  
               </div>
               <a href="index.html#register" class="bg-[#112e51] text-white px-5 py-2.5 rounded-lg font-bold hover:bg-slate-800 transition text-xs tracking-wider uppercase shadow-sm">Register</a>
           </div>
