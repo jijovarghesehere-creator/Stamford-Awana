@@ -18,6 +18,11 @@
 
     <link rel="stylesheet" href="css/styles.css">
 
+    <!-- Fraunces: warm ink-and-paper serif used for the Director's Message "letter" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <!-- NOTE: Play CDN is fine for prototyping, but Tailwind's own docs advise against
          using it in production (ships full JIT compiler, no purge, recompiles client-side).
@@ -31,7 +36,11 @@
                         awanaNavy: '#112e51',
                         awanaRed: '#e31b23',
                         awanaGold: '#ffcc00',
-                        awanaLightBlue: '#00a3ad'
+                        awanaLightBlue: '#00a3ad',
+                        letterPaper: '#FBF4E4'
+                    },
+                    fontFamily: {
+                        letter: ['"Fraunces"', 'ui-serif', 'Georgia', 'serif']
                     }
                 }
             }
@@ -63,6 +72,76 @@
     }
     </script>
     <script src="scripts/navbar.js" defer></script>
+
+    <style>
+        /* Director's Message "letter" — envelope flap, torn paper edge, wax seal */
+        .letter-card {
+            clip-path: polygon(
+                0% 1.2%, 2% 0%, 6% 1.5%, 11% 0.2%, 16% 1.6%, 21% 0.1%, 26% 1.4%,
+                31% 0.3%, 36% 1.5%, 41% 0%, 46% 1.3%, 51% 0.2%, 56% 1.6%, 61% 0.1%,
+                66% 1.4%, 71% 0.3%, 76% 1.5%, 81% 0%, 86% 1.3%, 91% 0.2%, 96% 1.6%,
+                100% 0.5%, 100% 100%, 0% 100%
+            );
+        }
+        .envelope-flap {
+            clip-path: polygon(0 0, 100% 0, 50% 68%);
+            transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+            transform-origin: top center;
+        }
+        .letter-group:hover .envelope-flap {
+            transform: translateY(-3px) scale(1.01);
+        }
+        .paper-grain {
+            background-image: radial-gradient(rgba(17,46,81,0.05) 0.6px, transparent 0.6px);
+            background-size: 10px 10px;
+        }
+        .wax-seal {
+            box-shadow: 0 2px 0 rgba(0,0,0,0.15), 0 6px 14px rgba(17,46,81,0.35), inset 0 1px 0 rgba(255,255,255,0.35);
+            transition: transform 0.2s ease;
+        }
+        .letter-group:hover .wax-seal {
+            transform: scale(1.06) rotate(-3deg);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .envelope-flap, .wax-seal { transition: none !important; }
+            .letter-group:hover .envelope-flap,
+            .letter-group:hover .wax-seal { transform: none !important; }
+        }
+
+        /* Scrollable director messages — keeps card heights consistent */
+        .msg-scroll {
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 transparent;
+        }
+        .msg-scroll::-webkit-scrollbar { width: 5px; }
+        .msg-scroll::-webkit-scrollbar-track { background: transparent; }
+        .msg-scroll::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 9999px; }
+        .msg-scroll::-webkit-scrollbar-thumb:hover { background-color: #94a3b8; }
+        .msg-fade::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 6px; bottom: 0;
+            height: 1.5rem;
+            pointer-events: none;
+            background: linear-gradient(to bottom, transparent, var(--fade-color, #ffffff));
+        }
+
+        /* Directors carousel — one card visible at a time, horizontally scrollable */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .dir-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            background-color: #cbd5e1;
+            transition: background-color 0.2s ease, width 0.2s ease;
+        }
+        .dir-dot[aria-selected="true"] {
+            width: 1.5rem;
+            background-color: #112e51;
+        }
+    </style>
 
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-awanaNavy selection:text-white pb-20 md:pb-0">
@@ -285,32 +364,184 @@
     </section>
 
 
-<!-- Compact Director's Message Callout -->
-    <section id="directors-callout" class="py-6 bg-slate-50 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-awanaNavy rounded-2xl p-5 md:p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-800">
+<!-- Director's Message Callout — styled as an opened letter -->
+    <section id="directors-callout" class="py-16 md:py-20 bg-slate-50 px-6">
+        <div class="max-w-3xl mx-auto">
 
-                <div class="flex items-center gap-4 text-center sm:text-left">
-                    <div class="hidden sm:flex w-10 h-10 bg-awanaRed/20 text-awanaRed rounded-full items-center justify-center shrink-0">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
-                        </svg>
-                    </div>
-                    <div>
+            <div class="letter-group relative">
 
-                        <p class="text-slate-300 text-xs md:text-sm font-medium mt-0.5">
-                            Hear from the Club Director's.
-                        </p>
-                    </div>
+                <!-- Envelope flap -->
+                <div class="envelope-flap relative h-20 md:h-24 bg-awanaNavy rounded-t-2xl">
+                    <div class="absolute inset-0 rounded-t-2xl" style="background:linear-gradient(180deg, rgba(255,255,255,0.06), transparent 60%);"></div>
                 </div>
 
-                <a href="Dir-message.html" class="shrink-0 w-full sm:w-auto bg-awanaGold hover:bg-amber-400 text-slate-900 font-bold px-4 py-2 rounded-lg text-xs shadow transition text-center inline-flex items-center justify-center gap-1.5">
-                    <span>Read Message</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                </a>
+                <!-- Letter paper -->
+                <div class="letter-card paper-grain relative bg-letterPaper -mt-1 rounded-b-2xl px-8 py-12 md:px-14 md:py-16 shadow-xl border border-amber-900/5 text-center">
 
+                    <!-- Wax seal -->
+                    <div class="wax-seal absolute -top-9 md:-top-10 left-1/2 -translate-x-1/2 w-16 h-16 md:w-[4.5rem] md:h-[4.5rem] rounded-full bg-awanaGold flex items-center justify-center border-4 border-letterPaper">
+                        <svg class="w-7 h-7 md:w-8 md:h-8 text-awanaNavy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.958a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.299.922-.756 1.688-1.54 1.118l-3.366-2.446a1 1 0 00-1.176 0l-3.367 2.446c-.783.57-1.838-.196-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.062 9.385c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.958z"></path>
+                        </svg>
+                    </div>
+
+                    <span class="text-awanaRed font-extrabold uppercase tracking-widest text-[11px] block mb-5 mt-4">
+                        A Letter From Our Directors
+                    </span>
+
+                    <h2 class="font-letter italic text-2xl md:text-4xl text-awanaNavy leading-snug mb-6">
+                        Watching faith take root, one kid and one Thursday at a time.
+                    </h2>
+
+                    <p class="text-slate-600 text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed">
+                        Our club directors share what led them to Awana, and what they hope every family walks away with this year.
+                    </p>
+
+                    <a href="#full-letter" class="inline-flex items-center gap-2 bg-awanaNavy hover:bg-slate-800 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-lg transition transform hover:-translate-y-0.5">
+                        <span>Read the Full Letter</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Full Directors' Message (integrated in-page, formerly Dir-message.html) -->
+    <section id="full-letter" class="scroll-mt-24 bg-white py-20 px-6 border-t border-slate-100">
+        <div class="max-w-5xl mx-auto">
+
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-awanaRed font-extrabold uppercase tracking-widest text-sm mb-3 block">From Our Leadership</span>
+                <h2 class="text-3xl md:text-5xl font-black text-[#030E20] mb-6 tracking-tight">Message from Our Directors</h2>
+                <p class="text-slate-600 text-lg font-medium leading-relaxed">
+                    Welcome to Stamford Awana! Our leadership team is committed to partnering with parents to help children know, love, and follow Jesus Christ every step of the way.
+                </p>
+            </div>
+
+            <!-- Karen Welborn — Director feature -->
+            <div class="grid md:grid-cols-[220px_1fr] gap-8 md:gap-10 items-start bg-slate-50 rounded-3xl p-8 md:p-10 border border-slate-100 shadow-sm mb-16">
+                <img src="images/Karen.jpeg" alt="Karen Welborn, Awana Director" width="220" height="220" loading="lazy" class="w-32 h-32 md:w-full md:h-auto aspect-square rounded-2xl object-cover mx-auto md:mx-0 ring-4 ring-awanaGold/40 shadow-md">
+                <div class="text-center md:text-left">
+                    <span class="inline-block text-[10px] font-extrabold uppercase tracking-widest text-awanaNavy bg-awanaGold/25 px-2.5 py-1 rounded-md mb-3">Awana Director</span>
+                    <h3 class="text-2xl md:text-3xl font-black text-slate-900">Karen Welborn</h3>
+                    <p class="text-slate-500 font-bold text-sm mb-5">Director</p>
+                    <blockquote class="font-letter italic text-lg md:text-xl text-awanaNavy leading-relaxed border-l-4 border-awanaGold pl-5 md:pl-6 text-left relative msg-fade" style="--fade-color:#f8fafc;">
+                        <div class="msg-scroll space-y-4 max-h-40 md:max-h-48 pr-3" tabindex="0" role="region" aria-label="Full message, scrollable">
+                            <p>"Through the years, I watched my seven children grow in God's Word and in their faith through Awana, and now have the joy of seeing this passed on to my grandchildren.</p>
+                            <p>Today, I am honored to serve as Director, with a heartfelt desire to help every child discover the joy of knowing Jesus and growing in His Word.</p>
+                            <p>Serving with joy, leading with faith, and inspiring every child to know and love Jesus. Together, we are planting seeds of God's Word that will grow for a lifetime."</p>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Club Directors -->
+            <h3 class="text-2xl md:text-3xl font-black text-slate-900 text-center mb-10">Our Club Directors</h3>
+
+            <div class="relative">
+            <div id="directors-carousel" class="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-2">
+
+                <!-- Cubbies -->
+                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
+                    <img src="images/Roccio-Cubbies.jpeg" alt="Roccio La Torre, Cubbies Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#76bce8]/50 mb-4">
+                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#003399] bg-[#76bce8]/30 px-2.5 py-1 rounded-md mb-3">Cubbies | Ages 3 – Pre-K</span>
+                    <h4 class="text-lg font-black text-slate-900">Roccio La Torre</h4>
+                    <p class="text-slate-500 font-bold text-xs mb-3">Cubbies Club Director</p>
+                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
+                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
+                            <p class="text-slate-600 text-sm leading-relaxed italic">
+                            "Our goal in Cubbies is to help preschoolers build a strong foundation of faith by learning Bible truths through stories, songs, and games, while making every Awana night fun, safe, and memorable."
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Sparks -->
+                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
+                    <img src="images/Jyoti-Sparks.jpg" alt="Jyothi Moody, Sparks Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#d32f2f]/40 mb-4">
+                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#d32f2f] bg-[#d32f2f]/10 px-2.5 py-1 rounded-md mb-3">Sparks | K – 2nd Grade</span>
+                    <h4 class="text-lg font-black text-slate-900">Jyothi Moody</h4>
+                    <p class="text-slate-500 font-bold text-xs mb-3">Sparks Director</p>
+                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
+                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
+                            <p class="text-slate-600 text-sm leading-relaxed italic">
+                            "Sparks helps children discover the excitement of knowing God and His Word. We encourage them to hide Scripture in their hearts while growing in faith, friendship, and confidence."
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- T&T Boys -->
+                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
+                    <img src="images/Rufus.jpeg" alt="Rufus Moody, T&T Boys Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#41ad49]/40 mb-4">
+                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#41ad49] bg-[#41ad49]/10 px-2.5 py-1 rounded-md mb-3">T&T | 3rd – 6th Grade</span>
+                    <h4 class="text-lg font-black text-slate-900">Rufus Moody</h4>
+                    <p class="text-slate-500 font-bold text-xs mb-3">T&T Boys Director</p>
+                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
+                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
+                            <p class="text-slate-600 text-sm leading-relaxed italic">
+                            "Our T&T clubbers are encouraged to ask questions, discover biblical truth, and put their faith into action as they grow in their relationship with Jesus."
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- T&T Girls -->
+                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
+                    <img src="images/Christine.jpg" alt="Christine Brookfield, T&T Girls Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#41ad49]/40 mb-4">
+                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#41ad49] bg-[#41ad49]/10 px-2.5 py-1 rounded-md mb-3">T&T | 3rd – 6th Grade</span>
+                    <h4 class="text-lg font-black text-slate-900">Christine Brookfield</h4>
+                    <p class="text-slate-500 font-bold text-xs mb-3">T&T Girls Director</p>
+                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
+                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
+                            <p class="text-slate-600 text-sm leading-relaxed italic">
+                            "We are excited for T&T this year! Our goal is to encourage the girls to know God in a personal way, treasure His Word and live boldly for Christ in every aspect of their lives. We are excited to watch the girls build friendships and to grow in faith together."
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Trek -->
+                <div class="director-slide snap-center shrink-0 w-full flex justify-center">
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition p-6 text-center flex flex-col items-center w-full max-w-sm">
+                    <img src="images/Tutu.png" alt="Tutu Olomola, Trek Director" width="112" height="112" loading="lazy" class="w-24 h-24 rounded-full object-cover ring-4 ring-[#003399]/40 mb-4">
+                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#003399] bg-[#003399]/10 px-2.5 py-1 rounded-md mb-3">Trek | 7th – 9th Grade</span>
+                    <h4 class="text-lg font-black text-slate-900">Tutu Olomola</h4>
+                    <p class="text-slate-500 font-bold text-xs mb-3">Trek Director</p>
+                    <div class="relative msg-fade max-h-24 w-full" style="--fade-color:#ffffff;">
+                        <div class="msg-scroll h-full overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Full message, scrollable">
+                            <p class="text-slate-600 text-sm leading-relaxed italic">
+                            "Our heart is to walk alongside young men and women as they grow in confidence, wisdom, and faith, helping them see how God's truth shapes every part of their lives."
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+
+            <!-- Carousel controls -->
+            <div class="flex items-center justify-center gap-5 mt-8">
+                <button id="dir-prev" type="button" aria-label="Previous director" class="w-10 h-10 shrink-0 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-awanaNavy hover:bg-slate-50 hover:border-slate-300 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <div id="dir-dots" class="flex items-center gap-2" role="tablist" aria-label="Select a director"></div>
+                <button id="dir-next" type="button" aria-label="Next director" class="w-10 h-10 shrink-0 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-awanaNavy hover:bg-slate-50 hover:border-slate-300 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
             </div>
         </div>
     </section>
@@ -572,6 +803,59 @@
           console.error(err);
           document.getElementById('calendar-loading').innerText = 'Calendar temporarily unavailable — please check back soon.';
         });
+    </script>
+
+    <script>
+      (function () {
+        const carousel = document.getElementById('directors-carousel');
+        if (!carousel) return;
+
+        const slides = Array.from(carousel.querySelectorAll('.director-slide'));
+        const dotsContainer = document.getElementById('dir-dots');
+        const prevBtn = document.getElementById('dir-prev');
+        const nextBtn = document.getElementById('dir-next');
+        let activeIndex = 0;
+
+        slides.forEach((slide, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'dir-dot';
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+          dot.setAttribute('aria-label', 'Show director ' + (i + 1) + ' of ' + slides.length);
+          dot.addEventListener('click', () => {
+            slide.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+          });
+          dotsContainer.appendChild(dot);
+        });
+        const dots = Array.from(dotsContainer.children);
+
+        function setActive(index) {
+          if (index === activeIndex) return;
+          activeIndex = index;
+          dots.forEach((d, i) => d.setAttribute('aria-selected', i === index ? 'true' : 'false'));
+        }
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                setActive(slides.indexOf(entry.target));
+              }
+            });
+          }, { root: carousel, threshold: [0.6] });
+          slides.forEach((slide) => observer.observe(slide));
+        }
+
+        prevBtn.addEventListener('click', () => {
+          const target = Math.max(activeIndex - 1, 0);
+          slides[target].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        });
+        nextBtn.addEventListener('click', () => {
+          const target = Math.min(activeIndex + 1, slides.length - 1);
+          slides[target].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        });
+      })();
     </script>
 </body>
 </html>
