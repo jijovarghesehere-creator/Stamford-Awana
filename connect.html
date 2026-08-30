@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Updates | Stamford Awana Clubs</title>
+    <meta name="description" content="Follow Stamford Awana Clubs on Facebook for the latest photos, announcements, and club updates.">
+    <link rel="icon" type="image/jpeg" href="https://clubs.awana.org/wp-content/uploads/2025/04/awana-clubs-logo-color-1.jpg">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        awanaNavy: '#112e51',
+                        awanaRed: '#e31b23',
+                        awanaGold: '#ffcc00',
+                        awanaLightBlue: '#00a3ad'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4CX83MG0S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L4CX83MG0S');
+    </script>
+    <script src="scripts/navbar.js" defer></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-awanaNavy selection:text-white pb-20 md:pb-0">
+
+    <site-navbar></site-navbar>
+
+    <!-- Page Header -->
+    <header class="bg-awanaNavy text-white py-16 md:py-20 px-6 text-center">
+        <div class="max-w-2xl mx-auto">
+            <span class="bg-awanaRed text-white text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+                Stay Connected
+            </span>
+            <h1 class="text-3xl md:text-5xl font-black text-white mt-6 mb-5 tracking-tight">
+                Follow Us on Facebook
+            </h1>
+            <p class="text-slate-200 text-base md:text-lg font-medium leading-relaxed">
+                Photos from club night, schedule reminders, and announcements — all posted straight to our Facebook page.
+            </p>
+        </div>
+    </header>
+
+    <!-- Facebook Feed -->
+    <section class="py-16 md:py-20 px-6">
+        <div class="max-w-xl mx-auto">
+            <div class="bg-white rounded-3xl border border-slate-100 shadow-lg p-4 sm:p-6">
+
+                <div id="fb-embed-wrap" class="w-full flex justify-center overflow-hidden rounded-2xl">
+                    <iframe
+                        title="Stamford Awana Club Facebook Page feed"
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FStamford-Awana-Club%2F100086127091100%2F&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                        width="500"
+                        height="700"
+                        style="border:none; overflow:hidden; max-width:100%;"
+                        scrolling="no"
+                        frameborder="0"
+                        allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <p class="text-slate-500 text-xs text-center mt-4">
+                    Not loading? Some browsers block embedded content by default.
+                </p>
+
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://www.facebook.com/people/Stamford-Awana-Club/100086127091100/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-awanaNavy hover:bg-slate-800 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-lg transition transform hover:-translate-y-0.5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"></path></svg>
+                    <span>Open Facebook Page</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Bottom Bar Component -->
+    <mobile-navbar></mobile-navbar>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6 text-center text-sm border-t border-slate-800">
+        <p class="font-semibold text-slate-300">&copy; 2026 Stamford Awana Club. All rights reserved.</p>
+        <p class="text-xs text-slate-500 max-w-xl mx-auto mt-3 leading-relaxed">
+            Awana® and the Awana logo are registered trademarks of Awana Clubs International. This local church group site is curated for club deployment logistics.
+        </p>
+    </footer>
+
+</body>
+</html>
