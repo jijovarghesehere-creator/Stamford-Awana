@@ -22,7 +22,7 @@ class SiteNavbar extends HTMLElement {
                   <a href="index.html#Live-Calendar" class="hover:text-[#e31b23] transition">Calendar</a>
                   
               </div>
-              <a href="index.html#register" class="bg-[#112e51] text-white px-5 py-2.5 rounded-lg font-bold hover:bg-slate-800 transition text-xs tracking-wider uppercase shadow-sm">Register</a>
+              <a href="https://app.approvedworkman.com/online-registration/1294/2026-2027?code=5Z4tBpGrd1Ve4yz" target="_blank"  class="bg-[#112e51] text-white px-5 py-2.5 rounded-lg font-bold hover:bg-slate-800 transition text-xs tracking-wider uppercase shadow-sm">Register</a>
           </div>
       </nav>
     `;
