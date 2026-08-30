@@ -59,23 +59,27 @@
         <div class="max-w-xl mx-auto">
             <div class="bg-white rounded-3xl border border-slate-100 shadow-lg p-4 sm:p-6">
 
-                <div id="fb-embed-wrap" class="w-full flex justify-center overflow-hidden rounded-2xl">
-                    <iframe
-                        title="Stamford Awana Club Facebook Page feed"
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FStamford-Awana-Club%2F100086127091100%2F&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-                        width="500"
-                        height="700"
-                        style="border:none; overflow:hidden; max-width:100%;"
-                        scrolling="no"
-                        frameborder="0"
-                        allowfullscreen="true"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                        loading="lazy">
-                    </iframe>
+                <div id="fb-root"></div>
+                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
+
+                <div id="fb-embed-wrap" class="w-full flex justify-center overflow-hidden rounded-2xl min-h-[300px]">
+                    <div class="fb-page"
+                        data-href="https://www.facebook.com/people/Stamford-Awana-Club/100086127091100/"
+                        data-tabs="timeline"
+                        data-width="500"
+                        data-height="700"
+                        data-small-header="false"
+                        data-adapt-container-width="true"
+                        data-hide-cover="false"
+                        data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/people/Stamford-Awana-Club/100086127091100/" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/people/Stamford-Awana-Club/100086127091100/" target="_blank" rel="noopener noreferrer">Stamford Awana Club</a>
+                        </blockquote>
+                    </div>
                 </div>
 
                 <p class="text-slate-500 text-xs text-center mt-4">
-                    Not loading? Some browsers block embedded content by default.
+                    Not loading, or photos missing? Some browsers and ad blockers block Facebook's embedded content and image CDN by default — see below.
                 </p>
 
             </div>
